@@ -22,6 +22,9 @@ class ProductViewController: UIViewController {
     }
     
     func registerCellWithTableView(){
+        productTableView.estimatedRowHeight = 50
+        productTableView.rowHeight = UITableView.automaticDimension
+        
         self.productTableView.dataSource = self
         self.productTableView.delegate = self
         let uiNib = UINib(nibName: resuseIdentifierForCell, bundle: nil)
@@ -69,6 +72,6 @@ extension ProductViewController : UITableViewDataSource{
 extension ProductViewController : UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50.0
+        return UITableView.automaticDimension
     }
 }
